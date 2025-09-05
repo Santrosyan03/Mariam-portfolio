@@ -6,20 +6,25 @@ export default function Header() {
   const { theme, toggleTheme } = useContext(ThemeContext);
 
   return (
-    <header>
+
+    <header className="header">
+
       <nav className="nav">
         <div className="logo">
           <FaBalanceScale size={32} color="var(--color-accent)" />
           <span className="site-title">Mariam Law</span>
         </div>
+
+        <ul className="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
         <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle dark mode">
           {theme === 'light' ? <FaMoon /> : <FaSun />}
         </button>
       </nav>
-      <section className="hero">
-        <h1>Professional Legal Services</h1>
-        <p>Your trusted partner in law.</p>
-      </section>
     </header>
   );
 }
