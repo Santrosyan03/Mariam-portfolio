@@ -1,0 +1,86 @@
+:root {
+  --color-bg: #ffffff;
+  --color-text: #0b1b3e;
+  --color-accent: #b22222;
+}
+
+[data-theme="dark"] {
+  --color-bg: #0b1b3e;
+  --color-text: #ffffff;
+  --color-accent: #e63946;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.app {
+  width: min(90%, 960px);
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.hero {
+  text-align: center;
+  padding: 4rem 0 2rem;
+}
+
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.main-content {
+  flex: 1;
+}
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem 0;
+}
+
+.service-card {
+  border: 1px solid var(--color-accent);
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  background: var(--color-bg);
+}
+
+.service-card .icon {
+  color: var(--color-accent);
+  margin-bottom: 1rem;
+}
+
+.footer {
+  margin-top: auto;
+  text-align: center;
+  padding: 2rem 0;
+  border-top: 1px solid var(--color-accent);
+}
