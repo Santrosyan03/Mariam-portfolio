@@ -1,3 +1,4 @@
+
 import {
   FaGavel,
   FaHandshake,
@@ -6,6 +7,7 @@ import {
   FaUniversity,
   FaUserShield
 } from 'react-icons/fa';
+
 
 const services = [
   {
@@ -22,6 +24,7 @@ const services = [
     icon: <FaShieldAlt size={32} />,
     title: 'Corporate Law',
     description: 'Comprehensive business legal support.'
+
   },
   {
     icon: <FaBalanceScale size={32} />,
@@ -37,12 +40,15 @@ const services = [
     icon: <FaUserShield size={32} />,
     title: 'Family Law',
     description: 'Support for family-related legal issues.'
+
   }
 ];
 
 export default function Services() {
   return (
+
     <section className="services section" id="services">
+
       {services.map((s, idx) => (
         <div key={idx} className="service-card">
           <div className="icon">{s.icon}</div>
