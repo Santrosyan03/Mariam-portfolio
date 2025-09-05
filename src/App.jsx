@@ -21,19 +21,17 @@ const Container = ({ className = '', children }) => (
 
 const Eyebrow = ({ children }) => (
 
-  <div className="flex items-center gap-2 text-base uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
-
     <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#C62828]" />
     {children}
   </div>
 );
 
-const SectionTitle = ({ eyebrow, title, subtitle, align = 'left' }) => (
+
+const SectionTitle = ({ eyebrow, title, subtitle, align = 'center' }) => (
   <div className={`${align === 'center' ? 'text-center' : 'text-left'}`}>
     {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
-
-    <h2 className="mt-3 font-serif text-4xl font-semibold leading-tight text-slate-900 dark:text-slate-100 md:text-5xl">{title}</h2>
-    {subtitle && <p className="mt-3 max-w-2xl text-lg text-slate-600 dark:text-slate-300 md:text-xl">{subtitle}</p>}
+    <h2 className="mt-3 font-serif text-5xl font-semibold leading-tight text-slate-900 dark:text-slate-100 md:text-6xl">{title}</h2>
+    {subtitle && <p className="mt-3 max-w-2xl text-xl text-slate-600 dark:text-slate-300 md:text-2xl">{subtitle}</p>}
 
     <div className="mt-6 h-[2px] w-28 bg-gradient-to-r from-[#C62828] to-[#0B1B3D]" />
   </div>
@@ -42,7 +40,7 @@ const SectionTitle = ({ eyebrow, title, subtitle, align = 'left' }) => (
 const Button = ({ children, href, onClick, variant = 'primary', className = '', ...props }) => {
   const base =
 
-    'inline-flex items-center justify-center gap-2 rounded-full px-6 py-2.5 text-base font-medium transition focus:outline-none focus:ring-2 focus:ring-offset-2';
+    'inline-flex items-center justify-center gap-2 rounded-full px-6 py-2.5 text-lg font-medium transition focus:outline-none focus:ring-2 focus:ring-offset-2';
 
   const styles = {
     primary: 'bg-[#0B1B3D] text-white hover:bg-[#0A1631] focus:ring-[#0B1B3D]',
@@ -250,13 +248,15 @@ export default function App() {
   };
 
   return (
-    <div className={`${dark ? 'dark ' : ''}min-h-screen bg-white text-slate-900 dark:bg-[#0B1220] dark:text-slate-100`}>
+
+    <div className={`${dark ? 'dark ' : ''}min-h-screen overflow-x-hidden bg-white text-slate-900 dark:bg-[#0B1220] dark:text-slate-100`}>
+
       {/* Top bar */}
       <header className={`sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur transition dark:border-slate-800 dark:bg-[#0B1220]/85 ${scrolled ? 'shadow-[0_1px_0_rgba(0,0,0,0.04)]' : ''}`}>
         <Container className="flex items-center justify-between py-3">
           <a href="#top" className="group inline-flex items-center gap-3">
 
-            <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#0B1B3D] font-serif text-base font-semibold tracking-wider text-white">LC</span>
+            <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#0B1B3D] font-serif text-lg font-semibold tracking-wider text-white">LC</span>
             <span className="font-serif text-xl font-semibold tracking-tight text-slate-900 dark:text-slate-100">Lawyer Counsel</span>
 
           </a>
@@ -266,7 +266,7 @@ export default function App() {
                 key={item.href}
                 href={item.href}
 
-                className={`rounded-full px-3 py-2 text-base uppercase tracking-[0.18em] transition hover:bg-[#0B1B3D]/5 dark:hover:bg-white/5 ${active === item.href ? 'text-[#0B1B3D] dark:text-white' : 'text-slate-600 dark:text-slate-400'}`}
+                className={`rounded-full px-3 py-2 text-lg uppercase tracking-[0.18em] transition hover:bg-[#0B1B3D]/5 dark:hover:bg-white/5 ${active === item.href ? 'text-[#0B1B3D] dark:text-white' : 'text-slate-600 dark:text-slate-400'}`}
 
               >
                 {item.label}
@@ -305,7 +305,7 @@ export default function App() {
                   href={item.href}
                   onClick={() => setMobileOpen(false)}
 
-                  className={`rounded-xl px-3 py-2 text-base transition hover:bg-[#0B1B3D]/5 dark:hover:bg-white/5 ${active === item.href ? 'text-[#0B1B3D] dark:text-slate-100' : 'text-slate-700 dark:text-slate-300'}`}
+                  className={`rounded-xl px-3 py-2 text-lg transition hover:bg-[#0B1B3D]/5 dark:hover:bg-white/5 ${active === item.href ? 'text-[#0B1B3D] dark:text-slate-100' : 'text-slate-700 dark:text-slate-300'}`}
 
                 >
                   {item.label}
@@ -320,7 +320,8 @@ export default function App() {
       {/* Hero */}
       <section id="top" className="relative overflow-hidden">
         <Container className="grid items-center gap-14 py-16 md:grid-cols-12 md:py-24">
-          <div className="md:col-span-7 lg:col-span-6">
+
+          <div className="md:col-span-7 lg:col-span-6 text-center md:text-left">
             <Eyebrow>Business Law • Yerevan</Eyebrow>
 
             <h1 className="mt-4 font-serif text-5xl leading-tight md:text-6xl">
@@ -335,15 +336,15 @@ export default function App() {
               <Button href="#services" variant="outline">View Services</Button>
             </div>
 
-            <div className="mt-10 grid grid-cols-3 gap-6 text-base text-slate-600 dark:text-slate-300">
+            <div className="mt-10 grid grid-cols-3 gap-6 text-lg text-slate-600 dark:text-slate-300">
               <div className="border-l border-[#0B1B3D]/25 pl-4"><div className="font-semibold text-xl text-slate-900 dark:text-slate-100">10+ yrs</div>experience</div>
               <div className="border-l border-[#0B1B3D]/25 pl-4"><div className="font-semibold text-xl text-slate-900 dark:text-slate-100">120+</div>clients</div>
               <div className="border-l border-[#0B1B3D]/25 pl-4"><div className="font-semibold text-xl text-slate-900 dark:text-slate-100">Fast</div>response</div>
-
             </div>
           </div>
           <div className="md:col-span-5 lg:col-span-6">
-            <div className="relative ml-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm md:max-w-none">
+            <div className="relative mx-auto md:ml-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm md:max-w-none">
+
               <img
                 alt="Lawyer portrait"
                 src="https://images.unsplash.com/photo-1549921296-3b4a6b1d1f55?q=80&w=1200&auto=format&fit=crop"
@@ -387,13 +388,14 @@ export default function App() {
                   <p.icon className="mt-1 h-6 w-6 text-[#0B1B3D] dark:text-slate-100" />
                   <div>
 
-                    <div className="font-medium text-lg">{p.title}</div>
-                    <p className="mt-1 text-base text-slate-600 dark:text-slate-300">{p.desc}</p>
+                <div className="font-medium text-xl">{p.title}</div>
+                    <p className="mt-1 text-lg text-slate-600 dark:text-slate-300">{p.desc}</p>
                   </div>
                 </div>
                 <div className="mt-6 h-px w-full bg-slate-200" />
-                <div className="mt-3 text-base uppercase tracking-[0.2em] text-[#C62828]">0{i + 1}</div>
-  </div>
+                <div className="mt-3 text-lg uppercase tracking-[0.2em] text-[#C62828]">0{i + 1}</div>
+              </div>
+
             ))}
           </div>
         </Container>
@@ -411,9 +413,8 @@ export default function App() {
                   <h3 className="font-serif text-2xl">{s.title}</h3>
                   <Button href="#contact" variant="ghost" className="rounded-full px-3 py-1">Inquire</Button>
                 </div>
-                <ul className="mt-3 space-y-2 text-base text-slate-600 dark:text-slate-300">
-
-                  {s.points.map((pt, i) => (
+                <ul className="mt-3 space-y-2 text-lg text-slate-600 dark:text-slate-300">
+      {s.points.map((pt, i) => (
                     <li key={i} className="flex items-start gap-2"><span className="mt-2 inline-block h-1 w-1 rounded-full bg-[#C62828]"/> {pt}</li>
                   ))}
                 </ul>
@@ -432,7 +433,7 @@ export default function App() {
               <div key={c} className="flex items-center justify-between rounded-xl border border-slate-200 p-6">
 
                 <div className="font-medium text-lg">{c}</div>
-                <span className="text-base text-slate-500 dark:text-slate-400">Verified</span>
+                <span className="text-lg text-slate-500 dark:text-slate-400">Verified</span>
 
               </div>
             ))}
@@ -449,7 +450,7 @@ export default function App() {
               <div key={r.label} className="rounded-2xl border border-slate-200 p-6 text-center">
 
                 <div className="font-serif text-4xl text-[#0B1B3D] dark:text-slate-100">{r.kpi}</div>
-                <div className="mt-2 text-base text-slate-600 dark:text-slate-300">{r.label}</div>
+                <div className="mt-2 text-lg text-slate-600 dark:text-slate-300">{r.label}</div>
 
               </div>
             ))}
@@ -467,7 +468,7 @@ export default function App() {
                 <Icon.quote className="h-6 w-6 text-[#C62828]" />
 
                 <p className="mt-3 text-lg text-slate-700 dark:text-slate-200">“{t.quote}”</p>
-                <div className="mt-4 text-base font-medium">{t.author}</div>
+                <div className="mt-4 text-lg font-medium">{t.author}</div>
 
               </Card>
             ))}
@@ -522,25 +523,25 @@ export default function App() {
                 >
                   <div>
 
-                    <label className="mb-1 block text-base font-medium text-slate-700">Full name</label>
+                    <label className="mb-1 block text-lg font-medium text-slate-700">Full name</label>
 
                     <input required className="w-full rounded-lg border border-slate-300 px-4 py-2.5 outline-none ring-[#0B1B3D] focus:ring" placeholder="Jane Doe" />
                   </div>
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div>
 
-                      <label className="mb-1 block text-base font-medium text-slate-700">Email</label>
+                      <label className="mb-1 block text-lg font-medium text-slate-700">Email</label>
                       <input type="email" required className="w-full rounded-lg border border-slate-300 px-4 py-2.5 outline-none ring-[#0B1B3D] focus:ring" placeholder="jane@company.com" />
                     </div>
                     <div>
-                      <label className="mb-1 block text-base font-medium text-slate-700">Phone (optional)</label>
+                      <label className="mb-1 block text-lg font-medium text-slate-700">Phone (optional)</label>
 
                       <input className="w-full rounded-lg border border-slate-300 px-4 py-2.5 outline-none ring-[#0B1B3D] focus:ring" placeholder="+374 …" />
                     </div>
                   </div>
                   <div>
 
-                    <label className="mb-1 block text-base font-medium text-slate-700">Service</label>
+                    <label className="mb-1 block text-lg font-medium text-slate-700">Service</label>
 
                     <select className="w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 outline-none ring-[#0B1B3D] focus:ring">
                       {SERVICES.map((s) => (
@@ -550,11 +551,11 @@ export default function App() {
                   </div>
                   <div>
 
-                    <label className="mb-1 block text-base font-medium text-slate-700">Message</label>
+                    <label className="mb-1 block text-lg font-medium text-slate-700">Message</label>
                     <textarea rows={4} className="w-full rounded-lg border border-slate-300 px-4 py-2.5 outline-none ring-[#0B1B3D] focus:ring" placeholder="Briefly describe your matter…" />
                   </div>
                   <div className="flex items-center justify-between gap-4">
-                    <label className="inline-flex items-center gap-2 text-base">
+                    <label className="inline-flex items-center gap-2 text-lg">
 
                       <input type="checkbox" className="rounded border-slate-300 text-[#0B1B3D] focus:ring-[#0B1B3D]" defaultChecked />
                       I agree to the <a href="#" className="underline">privacy policy</a>.
@@ -573,13 +574,13 @@ export default function App() {
         <Container className="grid items-center justify-between gap-6 md:grid-cols-3">
           <div className="flex items-center gap-3">
 
-            <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#0B1B3D] font-serif text-base font-semibold text-white">LC</span>
+            <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#0B1B3D] font-serif text-lg font-semibold text-white">LC</span>
             <div>
-              <div className="font-serif text-base font-semibold">Lawyer Counsel</div>
-              <div className="text-base text-slate-500 dark:text-slate-400">© {new Date().getFullYear()} All rights reserved.</div>
+              <div className="font-serif text-lg font-semibold">Lawyer Counsel</div>
+              <div className="text-lg text-slate-500 dark:text-slate-400">© {new Date().getFullYear()} All rights reserved.</div>
             </div>
           </div>
-          <nav className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-base uppercase tracking-[0.18em]">
+          <nav className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-lg uppercase tracking-[0.18em]">
 
             {NAV.map((n) => (
               <a key={n.href} href={n.href} className="text-slate-600 hover:text-[#0B1B3D] dark:text-slate-300 dark:hover:text-white">
@@ -588,7 +589,7 @@ export default function App() {
             ))}
           </nav>
 
-          <div className="text-center text-base md:text-right">
+          <div className="text-center text-lg md:text-right">
 
             <a href="#" className="text-slate-600 hover:text-[#0B1B3D] dark:text-slate-300 dark:hover:text-white">Privacy</a>
             <span className="mx-2 text-slate-300">•</span>
@@ -609,7 +610,7 @@ export default function App() {
       {/* Toast */}
       {toast && (
 
-        <div className="fixed inset-x-0 top-4 z-50 mx-auto w-fit rounded-full bg-[#0B1B3D] px-4 py-2 text-base text-white shadow dark:bg-white dark:text-[#0B1B3D]">{toast}</div>
+        <div className="fixed inset-x-0 top-4 z-50 mx-auto w-fit rounded-full bg-[#0B1B3D] px-4 py-2 text-lg text-white shadow dark:bg-white dark:text-[#0B1B3D]">{toast}</div>
 
       )}
     </div>
