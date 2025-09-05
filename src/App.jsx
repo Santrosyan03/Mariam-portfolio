@@ -20,7 +20,7 @@ const Container = ({ className = '', children }) => (
 );
 
 const Eyebrow = ({ children }) => (
-
+  <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
     <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#C62828]" />
     {children}
   </div>
@@ -347,7 +347,8 @@ export default function App() {
 
               <img
                 alt="Lawyer portrait"
-                src="https://images.unsplash.com/photo-1549921296-3b4a6b1d1f55?q=80&w=1200&auto=format&fit=crop"
+                               src="https://media.istockphoto.com/id/1415582978/photo/the-client-is-consulting-with-a-lawyer-on-legal-matters.jpg?s=612x612&w=0&k=20&c=uOAHXz7moYLAgcGB7joRBGLQKB_VmhZZPUu2rmnw5tU="
+
                 className="h-full w-full object-cover"
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
