@@ -28,10 +28,10 @@ const Eyebrow = ({ children }) => (
   </div>
 );
 
-const SectionTitle = ({ eyebrow, title, subtitle, align = 'left' }) => (
+
+const SectionTitle = ({ eyebrow, title, subtitle, align = 'center' }) => (
   <div className={`${align === 'center' ? 'text-center' : 'text-left'}`}>
     {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
-
     <h2 className="mt-3 font-serif text-4xl font-semibold leading-tight text-slate-900 dark:text-slate-100 md:text-5xl">{title}</h2>
     {subtitle && <p className="mt-3 max-w-2xl text-lg text-slate-600 dark:text-slate-300 md:text-xl">{subtitle}</p>}
 
@@ -250,7 +250,9 @@ export default function App() {
   };
 
   return (
-    <div className={`${dark ? 'dark ' : ''}min-h-screen bg-white text-slate-900 dark:bg-[#0B1220] dark:text-slate-100`}>
+
+    <div className={`${dark ? 'dark ' : ''}min-h-screen overflow-x-hidden bg-white text-slate-900 dark:bg-[#0B1220] dark:text-slate-100`}>
+
       {/* Top bar */}
       <header className={`sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur transition dark:border-slate-800 dark:bg-[#0B1220]/85 ${scrolled ? 'shadow-[0_1px_0_rgba(0,0,0,0.04)]' : ''}`}>
         <Container className="flex items-center justify-between py-3">
@@ -320,7 +322,8 @@ export default function App() {
       {/* Hero */}
       <section id="top" className="relative overflow-hidden">
         <Container className="grid items-center gap-14 py-16 md:grid-cols-12 md:py-24">
-          <div className="md:col-span-7 lg:col-span-6">
+
+          <div className="md:col-span-7 lg:col-span-6 text-center md:text-left">
             <Eyebrow>Business Law • Yerevan</Eyebrow>
 
             <h1 className="mt-4 font-serif text-5xl leading-tight md:text-6xl">
@@ -340,10 +343,12 @@ export default function App() {
               <div className="border-l border-[#0B1B3D]/25 pl-4"><div className="font-semibold text-xl text-slate-900 dark:text-slate-100">120+</div>clients</div>
               <div className="border-l border-[#0B1B3D]/25 pl-4"><div className="font-semibold text-xl text-slate-900 dark:text-slate-100">Fast</div>response</div>
 
+
             </div>
           </div>
           <div className="md:col-span-5 lg:col-span-6">
             <div className="relative ml-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm md:max-w-none">
+
               <img
                 alt="Lawyer portrait"
                 src="https://images.unsplash.com/photo-1549921296-3b4a6b1d1f55?q=80&w=1200&auto=format&fit=crop"
@@ -393,7 +398,7 @@ export default function App() {
                 </div>
                 <div className="mt-6 h-px w-full bg-slate-200" />
                 <div className="mt-3 text-base uppercase tracking-[0.2em] text-[#C62828]">0{i + 1}</div>
-  </div>
+
             ))}
           </div>
         </Container>
@@ -447,6 +452,7 @@ export default function App() {
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {RESULTS.map((r) => (
               <div key={r.label} className="rounded-2xl border border-slate-200 p-6 text-center">
+
 
                 <div className="font-serif text-4xl text-[#0B1B3D] dark:text-slate-100">{r.kpi}</div>
                 <div className="mt-2 text-base text-slate-600 dark:text-slate-300">{r.label}</div>
@@ -522,7 +528,9 @@ export default function App() {
                 >
                   <div>
 
+
                     <label className="mb-1 block text-base font-medium text-slate-700">Full name</label>
+
 
                     <input required className="w-full rounded-lg border border-slate-300 px-4 py-2.5 outline-none ring-[#0B1B3D] focus:ring" placeholder="Jane Doe" />
                   </div>
@@ -540,7 +548,9 @@ export default function App() {
                   </div>
                   <div>
 
+
                     <label className="mb-1 block text-base font-medium text-slate-700">Service</label>
+
 
                     <select className="w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 outline-none ring-[#0B1B3D] focus:ring">
                       {SERVICES.map((s) => (
@@ -588,7 +598,9 @@ export default function App() {
             ))}
           </nav>
 
+
           <div className="text-center text-base md:text-right">
+
 
             <a href="#" className="text-slate-600 hover:text-[#0B1B3D] dark:text-slate-300 dark:hover:text-white">Privacy</a>
             <span className="mx-2 text-slate-300">•</span>
